@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const Register = () => {
-  const [user, setUser] = useState({ username: "", email: "", password: "" });
+  const [user, setUser] = useState({
+    name: "",
+    username: "",
+    email_id: "",
+    password: "",
+  });
 
   const handleChange = (e) =>
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -19,12 +24,42 @@ const Register = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input name="username" onChange={handleChange} placeholder="Username" required />
-      <input name="email" onChange={handleChange} placeholder="Email" required />
-      <input name="password" type="password" onChange={handleChange} placeholder="Password" required />
-      <button type="submit">Register</button>
-    </form>
+    <div style={{ maxWidth: "400px", margin: "auto", textAlign: "center" }}>
+      <h2>Register</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          name="name"
+          value={user.name}
+          onChange={handleChange}
+          placeholder="Name"
+          required
+        /><br /><br />
+        <input
+          name="username"
+          value={user.username}
+          onChange={handleChange}
+          placeholder="Username"
+          required
+        /><br /><br />
+        <input
+          name="email_id"
+          type="email_id"
+          value={user.email_id}
+          onChange={handleChange}
+          placeholder="Email"
+          required
+        /><br /><br />
+        <input
+          name="password"
+          type="password"
+          value={user.password}
+          onChange={handleChange}
+          placeholder="Password"
+          required
+        /><br /><br />
+        <button type="submit">Register</button>
+      </form>
+    </div>
   );
 };
 
