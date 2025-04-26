@@ -1,71 +1,52 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const AuthForm = () => {
-  const [isLogin, setIsLogin] = useState(true);
-  const [formData, setFormData] = useState({ username: "", password: "" });
+const Login = () => {
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: ""
+  });
 
-  const handleChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const endpoint = isLogin
-      ? "http://localhost:8085/auth/login"
-      : "http://localhost:8085/auth/register";
-
     try {
-      const response = await axios.post(endpoint, formData);
+      const response = await axios.post("http://localhost:8085/auth/login", credentials);
       alert(response.data);
-
       if (response.data === "Login successful!") {
-        window.location.href = "/dashboard"; // or protected route
-      }
-
-      if (!isLogin) {
-        // After registration, switch to login form
-        setIsLogin(true);
+        window.location.href = "/dashboard"; // redirect after success
       }
     } catch (error) {
-      alert("Error: " + (error.response?.data || "Something went wrong"));
+      alert("Invalid login. Please try again.");
     }
   };
 
   return (
-    <div style={{ maxWidth: "400px", margin: "auto", textAlign: "center" }}>
-      <h2>{isLogin ? "Login" : "Register"}</h2>
+    <div style={{ maxWidth: "400px", margin: "auto", padding: "20px", textAlign: "center" }}>
+      <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input
           name="username"
           placeholder="Username"
-          value={formData.username}
+          value={credentials.username}
           onChange={handleChange}
           required
-        />
-        <br />
+        /><br /><br />
         <input
           name="password"
           type="password"
           placeholder="Password"
-          value={formData.password}
+          value={credentials.password}
           onChange={handleChange}
           required
-        />
-        <br />
-        <button type="submit">{isLogin ? "Login" : "Register"}</button>
+        /><br /><br />
+        <button type="submit">Login</button>
       </form>
-      <p style={{ marginTop: "10px" }}>
-        {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
-        <button
-          type="button"
-          onClick={() => setIsLogin(!isLogin)}
-          style={{ background: "none", border: "none", color: "blue", cursor: "pointer" }}
-        >
-          {isLogin ? "Register here" : "Login here"}
-        </button>
-      </p>
     </div>
   );
 };
 
-export default AuthForm;
+export default Login;

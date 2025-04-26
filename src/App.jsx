@@ -6,15 +6,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Redirect root to /login */}
         <Route path="/" element={<Navigate to="/login" />} />
-        
-        {/* Login and Register both handled by AuthForm */}
         <Route path="/login" element={<AuthForm />} />
         <Route path="/register" element={<AuthForm />} />
-
-        {/* You can add more routes like Dashboard later */}
-        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
       </Routes>
     </Router>
   );
