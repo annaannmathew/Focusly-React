@@ -1,0 +1,56 @@
+.forum-container {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .forum-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .forum-form input,
+  .forum-form textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .forum-form button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .forum-posts .post-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+  }
+  
+  .post-card h3 {
+    margin-top: 0;
+  }
+  
+  .delete-button {
+    background: #d32f2f;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    margin-top: 8px;
+    cursor: pointer;
+  }
+  
+  .error {
+    color: red;
+  }
+  
