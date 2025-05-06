@@ -34,7 +34,7 @@ const AuthForm = () => {
       alert(response.data);
 
       if (response.data === "Login successful!") {
-        window.location.href = "/studyplan";
+        window.location.href = "/dashboard";
       }
 
       if (!isLogin) {

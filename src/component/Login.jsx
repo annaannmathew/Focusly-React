@@ -19,7 +19,7 @@ const Login = () => {
       const response = await axios.post("http://localhost:8085/auth/login", credentials);
       alert(response.data);
       if (response.data === "Login successful!") {
-        window.location.href = "/studyplan"; // redirect after success
+        window.location.href = "/dashboard"; // redirect after success
       }
     } catch (error) {
       alert("Invalid login. Please try again.");
