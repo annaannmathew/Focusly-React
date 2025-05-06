@@ -24,3 +24,67 @@
     border-left: 4px solid #4caf50;
   }
   
+  body.sidebar-open .side-nav {
+    left: 0;
+  }
+  
+  .dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    font-family: sans-serif;
+  }
+  
+  .top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #004466;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    z-index: 1000;
+  }
+  
+  .top-nav input {
+    padding: 4px;
+    margin-right: 8px;
+  }
+  
+  .side-nav {
+    position: fixed;
+    top: 60px;
+    left: -200px;
+    width: 200px;
+    background: #f0f0f0;
+    height: 100%;
+    transition: left 0.3s ease;
+    padding-top: 20px;
+    z-index: 999;
+  }
+  
+  .side-nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .side-nav ul li {
+    padding: 12px 20px;
+  }
+  
+  .side-nav ul li a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .main-content {
+    margin-left: 0;
+    margin-top: 60px;
+    padding: 20px;
+    flex-grow: 1;
+    width: 100%;
+  }
+  
