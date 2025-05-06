@@ -14,7 +14,6 @@ const TopNav = ({ userId, onSearch }) => {
         <button className="menu-toggle" onClick={() => document.body.classList.toggle("sidebar-open")}>
           ☰
         </button>
-        <h2>Dashboard</h2>
       </div>
       <div className="top-nav-right">
         <input
