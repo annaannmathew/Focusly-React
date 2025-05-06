@@ -5,6 +5,7 @@ import StudyPlan from "./component/StudyPlan";
 import BadgeList from "./component/Badge"; 
 import Forum from "./component/Forum";
 import MoodCheckIn from "./component/MoodCheckIn";
+import DashboardOverview from "./component/DashboardOverview";
 
 function App() {
   const [userId, setUserId] = useState(null);
@@ -34,7 +35,8 @@ function App() {
           path="/forum"
           element={<Forum userId={userId} />}
         />
-        <Route path="/mood-checkin" element={<MoodCheckIn userId={userId} />} />
+        {/* <Route path="/mood" element={<MoodCheckIn userId={userId} />} /> */}
+        <Route path="/dashboard" element={<DashboardOverview userId={userId} />} />
 
       </Routes>
     </Router>

@@ -1,0 +1,23 @@
+.dashboard-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .dashboard-container h2,
+  .dashboard-container h3 {
+    color: #333;
+  }
+  
+  .dashboard-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .dashboard-container li {
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    margin-top: 8px;
+    border-radius: 6px;
+  }
+  

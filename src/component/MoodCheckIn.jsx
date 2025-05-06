@@ -10,10 +10,10 @@ const MoodCheckIn = ({ userId }) => {
     if (!mood.trim()) return;
 
     try {
-      const response = await fetch(`/moodcheckin/${userId}`, {
+      const response = await fetch(`/api/moodcheckin/${userId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ mood })
+        body: JSON.stringify({ mood }),
       });
 
       if (response.ok) {
@@ -24,17 +24,22 @@ const MoodCheckIn = ({ userId }) => {
         setMessage('Failed to submit mood.');
       }
     } catch (error) {
+      console.error('Error submitting mood:', error);
       setMessage('Server error.');
     }
   };
 
   const fetchMoodHistory = async () => {
     try {
-      const res = await fetch(`/moodcheckin/history/${userId}`);
-      const data = await res.json();
-      setHistory(data);
-    } catch (err) {
-      setMessage('Could not fetch history.');
+      const res = await fetch(`/api/moodcheckin/history/${userId}`);
+      if (res.ok) {
+        const data = await res.json();
+        setHistory(data);
+      } else {
+        console.error('Failed to fetch mood history.');
+      }
+    } catch (error) {
+      console.error('Fetch error:', error);
     }
   };
 
@@ -64,7 +69,7 @@ const MoodCheckIn = ({ userId }) => {
           <ul>
             {history.map((entry) => (
               <li key={entry.id}>
-                <strong>{entry.mood}</strong> —{' '}
+                <span>{entry.mood}</span> —{' '}
                 <small>{new Date(entry.timestamp).toLocaleString()}</small>
               </li>
             ))}
